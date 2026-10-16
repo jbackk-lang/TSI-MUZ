@@ -19,6 +19,10 @@ Stan: **16 października 2026 r. — prototyp użytkowy**.
 | Dokumenty | Istniejący silnik MUZ przygotowuje projekty pism; weryfikuje wymagane pola i dzieli długie PDF-y na strony. Funkcje te nie są jeszcze dostępne z nowego dashboardu. |
 | Połączenie z TSI | Zadania strukturalne uruchamiają analizę MUZ. Router swobodnych poleceń finansowych wymaga dalszej pracy. |
 
+## Pochodzenie kwot
+
+Nowy raport importu pokazuje plik, SHA-256 i pozycję odczytu każdej transakcji oraz matrycę sum wpływów i wydatków. Dotyczy ostatniego importu; nie zastępuje kontroli kompletności dokumentów ani późniejszych korekt budżetu. Testy: **16/16**, dodatkowo sprawdzian widoku na syntetycznych danych. [Zakres i ograniczenia](docs/POCHODZENIE_KWOT_2026-10-16.md).
+
 ## Co oznaczają wyniki
 
 - Pozostały limit **nie jest potwierdzoną oszczędnością**.
