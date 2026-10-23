@@ -1,52 +1,46 @@
 # TSI-MUZ
 
-**Lokalny zarządca spraw i budżetu:** terminy, plan wydatków, rozliczenie wykonania oraz nadzór nad zmianami.
-
-To repozytorium zawiera wyłącznie dokumentację i podgląd interfejsu. Kod TSI i MUZ, modele, dane treningowe oraz dane użytkownika pozostają lokalnie. Ta publikacja nie jest instalatorem aplikacji.
-
-Stan: **16 października 2026 r. — prototyp użytkowy**.
-
-![Dashboard TSI-MUZ — dane syntetyczne](assets/dashboard-desktop.png)
+**Stan: 23 października 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
 
 ## Co działa
 
-| Obszar | Możliwości |
-|---|---|
-| Sprawy | Tytuł, rodzaj, termin, następny krok, status i zapis wyniku. Historia zmian pozostaje w lokalnej bazie. |
-| Plan budżetu | Własny okres, kategorie i limity. Kolejne plany są zachowywane. |
-| Wykonanie | Ręczne wpisy rzeczywistych wydatków, porównanie z planem, przekroczenia i wydatki bez kategorii. |
-| Automat | Co 30 sekund sprawdza lokalnie zapisane dane i terminy. Dziennik zapisuje zmiany rozliczenia i listy spraw po terminie. |
-| Dokumenty | Istniejący silnik MUZ przygotowuje projekty pism; weryfikuje wymagane pola i dzieli długie PDF-y na strony. Funkcje te nie są jeszcze dostępne z nowego dashboardu. |
-| Połączenie z TSI | Zadania strukturalne uruchamiają analizę MUZ. Router swobodnych poleceń finansowych wymaga dalszej pracy. |
+- Dashboard spraw i planów oraz osobna tabela budżetu z wykresami i podsumowaniem kategorii.
+- Import wyciągów PDF z tekstem, CSV i MT940/STA: do 10 plików i 100 MB, status każdego pliku, propozycje kategorii i kontrola ponownego importu. Skan może wymagać OCR; nie każdy układ dokumentu jest obsługiwany.
+- Ręczne wpływy i wydatki, edycja, usuwanie oraz cofanie korekty; kwoty są przechowywane w całkowitych groszach.
+- Analiza dostępnego salda, historii wydatków i stałych opłat; plan rezerwy i przydziału środków oraz projekty pism w zakresie silnika MUZ.
+- Automat sprawdzający terminy i zmiany co 30 sekund, gdy serwer działa. Dane i historia spraw są zapisywane lokalnie w SQLite.
+- Wspólna obsługa zadań przez TSI, walidacja przekazywanych rekordów i wskazywanie brakujących danych zamiast wymyślania salda.
 
-## Pochodzenie kwot
+MUZ nie wykonuje przelewów ani nie wysyła pism. Nie pobiera sam transakcji z banku. Projekty wymagają oceny użytkownika; bez kompletnego salda i historii plan może pozostać niepełny.
 
-Nowy raport importu pokazuje plik, SHA-256 i pozycję odczytu każdej transakcji oraz matrycę sum wpływów i wydatków. Dotyczy ostatniego importu; nie zastępuje kontroli kompletności dokumentów ani późniejszych korekt budżetu. Testy: **16/16**, dodatkowo sprawdzian widoku na syntetycznych danych. [Zakres i ograniczenia](docs/POCHODZENIE_KWOT_2026-10-16.md).
+## Uruchomienie
 
-## Co oznaczają wyniki
+Instalacja robocza: `Uruchom_TSI_MUZ.bat`; panel `http://127.0.0.1:8796/`. Menu umożliwia otwarcie, restart i zamknięcie własnego serwera.
 
-- Pozostały limit **nie jest potwierdzoną oszczędnością**.
-- Niepełne dane i trwający okres oznaczają rozliczenie wstępne.
-- Wpływy są wykazywane oddzielnie; system nie uznaje ich automatycznie za zwroty wydatków.
-- Reguły symulacji MUZ nie stanowią uniwersalnych zaleceń finansowych.
-- Obietnica obniżki rachunku nie zamyka sprawy bez zapisania wyniku. Automatyczna ocena skuteczności negocjacji nie została jeszcze wdrożona.
+Portable: rozpakuj ZIP i użyj `START.bat`. Wybierany jest osobny wolny port od 8820. Zamykanie własnej instancji: `ZATRZYMAJ.bat`. Automat działa przy uruchomionym serwerze; zamknięcie karty przeglądarki nie zatrzymuje serwera.
 
-## Jak działa nadzór
+## Ostatnie sprawdzenia
 
-Automat działa, dopóki uruchomiony jest lokalny serwer aplikacji, także po zamknięciu karty przeglądarki. Jego włączenie jest zapamiętywane. Nie uruchamia się sam przy starcie Windows i nie pobiera sam wyciągów z banku.
+**5/5 kontroli budżetu**: pełny plan zgodny z dotychczasowym silnikiem, dokładne saldo **2950,00 zł**, odrzucenie niecałkowitych groszy, niewłaściwej waluty i przyszłej daty oraz poprawny wynik po odrzuconych żądaniach.
 
-Panel pozwala dodawać sprawy, ustawiać plan, wpisywać wydatki i ręcznie zmieniać statusy. Automat nie wysyła pism, nie wykonuje przelewów i nie podejmuje transakcji inwestycyjnych.
+Próba HTTP z dodanym wydatkiem potwierdziła wskazanie brakującego salda i historii potrzebnej do planu. Dane sprawdzianu były syntetyczne. Wyniki nie oznaczają kwalifikacji do samodzielnego podejmowania decyzji finansowych.
 
-## Sprawdzenie działania
+## TSI — stan na 23 października 2026
 
-**156 testów zaliczonych**, bez błędów i pominięć w opisanym przebiegu. Sprawdzono formularze, trwałość danych po ponownym wczytaniu oraz układ przy szerokości 1366 i 390 pikseli. Testy wykonano na danych syntetycznych; nie są dowodem skuteczności finansowej w rzeczywistym gospodarstwie.
+Obliczenia i odczyt obsługiwanych poleceń korzystają ze wspólnego modułu TSI. Czytnik i narzędzia pozostają w uruchomionym procesie, co usuwa ich wielokrotne ładowanie przy kolejnych zadaniach. Moduł matematyczny znajduje się wewnątrz TSI; aplikacje korzystają z jego interfejsu.
 
-W testach pozostaje 387 ostrzeżeń istniejącego dopasowania trendu META. Szczegóły: [walidacja i ograniczenia](WALIDACJA.md).
+Aktywny moduł dowodowy: **TSI-DUAL-TASK-V3-5f8069b8**, **10 227 859 parametrów**, plik wag **41 276 171 bajtów (39,36 MiB)**. To rozmiar tego checkpointu, a nie wszystkich czytników, bibliotek i aplikacji. Dodatkowe czytniki, modele dziedzinowe oraz solvery są dołączane osobno.
 
-## Dokumentacja
+Nowe wagi swobodnej rozmowy pozostają w treningu i **nie są wdrożone**. Wynik 24/24 na wybranym zestawie kolorów i godzin nie potwierdził ogólnej poprawy: szerszy sprawdzian dał 9/12 przed i po korekcie. Nadal rozwijane są wiązanie cech z osobami, aktualizacja faktów i pełny zapis wartości.
 
-- [Możliwości i sposób użycia](MOZLIWOSCI.md)
-- [Walidacja i ograniczenia](WALIDACJA.md)
-- [Historia prac](HISTORIA.md)
-- [Dalszy rozwój](PLAN_ROZWOJU.md)
-- [Widok mobilny — przykład syntetyczny](assets/dashboard-mobile.png)
+## Portable — Windows x64
+
+Paczka zawiera kod źródłowy, aktywne modele, lokalny Python i biblioteki. Rozpakuj cały ZIP do katalogu z prawem zapisu i uruchom **START.bat**. Zatrzymanie: **ZATRZYMAJ.bat**. Nie potrzeba innych katalogów projektów ani instalowania Pythona. Zachowaj całą strukturę folderów.
+
+Portable przechowuje własne dane wykonania w `app/runtime`. Archiwum startowe nie zawiera prywatnych dokumentów bankowych, danych użytkownika, haseł panelu, tokenów, historii Git i katalogów treningu. Baza użytkownika istniejącej lokalnej wersji portable jest zachowywana podczas aktualizacji folderu; ZIP przeznaczony do przenoszenia pozostaje czysty.
+
+Rozmiary składników znajdują się w `PACKAGE_INFO.json` wewnątrz paczki. Rozmiar ZIP i jego SHA-256 zapisuje raport `PORTABLE_PACKAGES_2026-10-23.json` obok archiwów. Zewnętrzne odnośniki słownika wymagają internetu. Import obrazów wymaga dostępnego lokalnego OCR; obecność i działanie OCR są wykazywane w raporcie kontroli paczki.
+
+## Historia
+
+Poprzedni README i opis wcześniejszych etapów: [archiwum dokumentacji](docs/archiwum/README_przed_2026-10-23.md). [Aktualna integracja i sprawdzenia](docs/INTEGRACJA_TSI_2026-10-23.md).
