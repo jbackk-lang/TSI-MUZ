@@ -68,10 +68,15 @@ Rozmiary składników znajdują się w `PACKAGE_INFO.json` wewnątrz paczki. Roz
 
 Poprzedni README i opis wcześniejszych etapów: [archiwum dokumentacji](docs/archiwum/README_przed_2026-10-23.md). [Aktualna integracja i sprawdzenia](docs/INTEGRACJA_TSI_2026-10-23.md).
 
-## Podgląd kontekstu panelu
+## Aktualny podgląd — 29 października 2026
 
-Przykład na syntetycznych danych testowych: pomocnik odróżnia niezapisaną kwotę kosztu od danych zapisanych.
+Bieżący układ budżetu, edytowalne stałe koszty i belka przypomnień. Wszystkie kwoty i nazwy na zrzutach są danymi testowymi.
 
-![Kontekst panelu i niezapisana edycja — dane testowe](docs/panel-context-2026-10-29.png)
+![Aktualny budżet i tabela stałych kosztów — dane testowe](docs/muz-budget-current.png)
+
+Raport z ustawieniami po lewej i wynikiem po prawej:
+
+![Aktualne okno raportu MUZ — dane testowe](docs/muz-report-current.png)
+
 
 [README sprzed aktualizacji 29 października](docs/archiwum/README_przed_2026-10-29.md).
