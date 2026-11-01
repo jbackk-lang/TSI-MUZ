@@ -1,15 +1,26 @@
 # TSI-MUZ
 
-**Stan wersji lokalnej: 29 października 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
+**Stan wersji lokalnej: 1 listopada 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
 
 To repozytorium publikuje dokumentację i podgląd aplikacji. Kod, wagi TSI, dokumenty bankowe i dane użytkownika pozostają lokalnie. Opis bieżącego katalogu roboczego nie oznacza aktualizacji dotychczasowych paczek portable.
 
-## Potwierdzony stan — 29 października 2026
+## Podłączone TSI — 1 listopada 2026
 
-W lokalnej aplikacji działają: budżet i wykresy, import dokumentów, sprawy i terminy, belka przypomnień, edytowalne stałe koszty z usuwaniem i cofnięciem oraz raporty według ustawień użytkownika. Pomocnik TSI otrzymuje **kontekst wskazanego panelu i wiersza**, zachowuje wybór przy pytaniu uzupełniającym i rozróżnia zapisane dane od niezapisanej edycji kosztu. Nowy odczyt przeszedł **9/9 testów**, trzy scenariusze pełnego transportu oraz sprawdzenie formularza w przeglądarce. Nie wykonuje płatności ani nie zapisuje kosztu samym pytaniem.
+MUZ korzysta ze wspólnej lokalnej instalacji **TSI z generatorem odpowiedzi 3**. Odczyt ról, układanie wypowiedzi, zaprzeczenia, przyczyny, skutki i odwołania w rozmowie są dostępne przez pomocnika. Dane budżetu nadal obsługują narzędzia MUZ; obliczenia kwot pozostają dokładne do grosza.
 
-Aktualizacja dotyczy lokalnego katalogu roboczego. **Nie podmieniano wag modelu ani dotychczasowych paczek portable.** Swobodna rozmowa nie osiągnęła wymaganego poziomu. Dzisiejszy [sprawdzian osobnego modułu sygnałowego](docs/RAPORT_SYGNALY_2026-10-29.md) nie jest testem zarządzania budżetem ani wdrożeniem diagnostyki w MUZ. [Szczegóły kontekstu panelu](docs/KONTEKST_PANELU_TSI_2026-10-29.md).
+Pomocnik rozdziela **rozmowę o podanej treści** od **kontekstu panelu i wiersza**. „Dlaczego?” po odczytanym tekście odnosi się do tego tekstu. Wskazanie kosztu lub powrót do pytania o panel przełącza zakres na dane MUZ. Wybrany wiersz, termin i niezapisany formularz zachowują swój dotychczasowy odczyt.
 
+Nowa wersja jest wykrywana przez kontrolę plików wspólnego modułu i manifestu modelu. Proces rozmowy przeładowuje się przy kolejnym żądaniu, zachowując lokalny kontekst i pamięć. Dane i rozmowy MUZ pozostają w jego własnym katalogu roboczym.
+
+**Próba podłączenia: 10/10.** Obejmuje wieloturową rozmowę z generatorem 3, identyfikację wersji, zachowanie kontekstu po przeładowaniu, kwotę **1234,56 zł** i termin **15.11.2026** na sztucznym wierszu oraz reset rozmowy. Dane testowe nie pochodziły z rachunków użytkownika.
+
+W działającym panelu potwierdzono również **5/5 prób HTTP**: cztery kolejne tury rozmowy i powrót do bieżącego kontekstu MUZ. Wyniki podłączenia i transportu są osobnymi zestawami prób.
+
+Przykład: `Iga czyta list, bo Leon otwiera okno. Co robi Iga?` → **Iga czyta list.** Kolejne `Dlaczego?` → **Iga czyta list, ponieważ Leon otwiera okno.** Zmiana panelu lub wybranego wiersza zmienia zakres pomocy.
+
+Gotowa wypowiedź jest sprawdzana względem źródła. Wraca także do obserwacji gałęzi K, która jest kierunkowskazem obok kontroli ról, negacji i relacji. Podłączenie nie oznacza nowego treningu modelu ani aktualizacji wydanych paczek portable.
+
+[Zakres wspólnego TSI](https://github.com/jbackk-lang/AI-SI-TSI) · [Historia poprzedniego README](docs/archiwum/README_przed_TSI3_20261101.md).
 
 ## TSI dopasowane do panelu
 
