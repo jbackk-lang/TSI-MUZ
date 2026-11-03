@@ -1,26 +1,28 @@
 # TSI-MUZ
 
-**Stan wersji lokalnej: 1 listopada 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
+**Stan wersji lokalnej: 3 listopada 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
 
 To repozytorium publikuje dokumentację i podgląd aplikacji. Kod, wagi TSI, dokumenty bankowe i dane użytkownika pozostają lokalnie. Opis bieżącego katalogu roboczego nie oznacza aktualizacji dotychczasowych paczek portable.
 
-## Podłączone TSI — 1 listopada 2026
+## Wspólne TSI — 3 listopada 2026
 
-MUZ korzysta ze wspólnej lokalnej instalacji **TSI z generatorem odpowiedzi 3**. Odczyt ról, układanie wypowiedzi, zaprzeczenia, przyczyny, skutki i odwołania w rozmowie są dostępne przez pomocnika. Dane budżetu nadal obsługują narzędzia MUZ; obliczenia kwot pozostają dokładne do grosza.
+Lokalne aplikacje korzystają z tej samej instalacji TSI, w wersji obsługi **`2026-11-03-consumers-11`**. Rozmowy i pamięć użytkowników są zapisywane osobno w każdej aplikacji. Zmiana panelu lub danych wybranego zadania unieważnia poprzednie aktywne dane matematyczne; przeładowanie modułu zachowuje zapisany kontekst tej samej rozmowy.
 
-Pomocnik rozdziela **rozmowę o podanej treści** od **kontekstu panelu i wiersza**. „Dlaczego?” po odczytanym tekście odnosi się do tego tekstu. Wskazanie kosztu lub powrót do pytania o panel przełącza zakres na dane MUZ. Wybrany wiersz, termin i niezapisany formularz zachowują swój dotychczasowy odczyt.
+Pomocnik przelicza jednostki, sprawdza kroki równań i łączy narzędzia w zadaniach o ruchu jednostajnym. Potrafi zmienić podaną wielkość i ponownie obliczyć wynik. Audyt rozwiązania ucznia uwzględnia dane zadania oraz dziedzinę, wskazując pierwszy niezgodny wiersz. Osobno zachowano pytania o podany tekst i przyczynę opisanej czynności.
 
-Nowa wersja jest wykrywana przez kontrolę plików wspólnego modułu i manifestu modelu. Proces rozmowy przeładowuje się przy kolejnym żądaniu, zachowując lokalny kontekst i pamięć. Dane i rozmowy MUZ pozostają w jego własnym katalogu roboczym.
+**Podłączenie: 15/15 prób w tej aplikacji; dodatkowo 7/7 przez jej działający panel HTTP.** Sprawdzono jednostki, zadanie 18 km/h przez 40 minut, zmianę czasu na 25 minut, audyt ucznia, PL/EN, kąty podawane osobno, rozdzielenie profili, zmianę kontekstu i odczyt po ponownym uruchomieniu procesu rozmowy.
 
-**Próba podłączenia: 10/10.** Obejmuje wieloturową rozmowę z generatorem 3, identyfikację wersji, zachowanie kontekstu po przeładowaniu, kwotę **1234,56 zł** i termin **15.11.2026** na sztucznym wierszu oraz reset rozmowy. Dane testowe nie pochodziły z rachunków użytkownika.
+Przykładowe polecenia:
 
-W działającym panelu potwierdzono również **5/5 prób HTTP**: cztery kolejne tury rozmowy i powrót do bieżącego kontekstu MUZ. Wyniki podłączenia i transportu są osobnymi zestawami prób.
+```text
+Przelicz 72 km/h na m/s.
+Rowerzysta jedzie 18 km/h przez 40 minut. Jaką drogę pokona?
+Zmień czas na 25 minut.
+```
 
-Przykład: `Iga czyta list, bo Leon otwiera okno. Co robi Iga?` → **Iga czyta list.** Kolejne `Dlaczego?` → **Iga czyta list, ponieważ Leon otwiera okno.** Zmiana panelu lub wybranego wiersza zmienia zakres pomocy.
+Wyniki: **20 m/s**, następnie **12 km**, po zmianie **7,5 km**. Prośbę „Sprawdź moje rozwiązanie:” można uzupełnić równaniami w kolejnych wierszach. [Szczegóły aktualizacji](docs/INTEGRACJA_TSI_20261103.md) · [Zakres wspólnego TSI](https://github.com/jbackk-lang/AI-SI-TSI).
 
-Gotowa wypowiedź jest sprawdzana względem źródła. Wraca także do obserwacji gałęzi K, która jest kierunkowskazem obok kontroli ról, negacji i relacji. Podłączenie nie oznacza nowego treningu modelu ani aktualizacji wydanych paczek portable.
-
-[Zakres wspólnego TSI](https://github.com/jbackk-lang/AI-SI-TSI) · [Historia poprzedniego README](docs/archiwum/README_przed_TSI3_20261101.md).
+Aktualizacja dotyczy działającej instalacji lokalnej. Wagi modułu odpowiedzi pozostają na kroku **5217**; większa sieć treningowa nie została wdrożona. Dotychczasowe demo i paczki portable zachowują wersje podane przy wydaniach.
 
 ## TSI dopasowane do panelu
 
@@ -91,3 +93,5 @@ Raport z ustawieniami po lewej i wynikiem po prawej:
 
 
 [README sprzed aktualizacji 29 października](docs/archiwum/README_przed_2026-10-29.md).
+
+[README sprzed podłączenia z 3 listopada](docs/archiwum/README_przed_integracja_20261103.md).
