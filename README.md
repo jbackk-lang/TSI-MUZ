@@ -2,7 +2,7 @@
 
 **Stan wersji lokalnej: 3 listopada 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
 
-To repozytorium publikuje dokumentację i podgląd aplikacji. Kod, wagi TSI, dokumenty bankowe i dane użytkownika pozostają lokalnie. Opis bieżącego katalogu roboczego nie oznacza aktualizacji dotychczasowych paczek portable.
+To repozytorium publikuje dokumentację i podgląd aplikacji. Kod, wagi TSI, dokumenty bankowe i dane użytkownika pozostają lokalnie. Pełną lokalną wersję portable zaktualizowano 3 listopada; szczegóły podaje [opis paczek](docs/PORTABLE_20261103.md).
 
 ## Wspólne TSI — 3 listopada 2026
 
@@ -22,7 +22,7 @@ Zmień czas na 25 minut.
 
 Wyniki: **20 m/s**, następnie **12 km**, po zmianie **7,5 km**. Prośbę „Sprawdź moje rozwiązanie:” można uzupełnić równaniami w kolejnych wierszach. [Szczegóły aktualizacji](docs/INTEGRACJA_TSI_20261103.md) · [Zakres wspólnego TSI](https://github.com/jbackk-lang/AI-SI-TSI).
 
-Aktualizacja dotyczy działającej instalacji lokalnej. Wagi modułu odpowiedzi pozostają na kroku **5217**; większa sieć treningowa nie została wdrożona. Dotychczasowe demo i paczki portable zachowują wersje podane przy wydaniach.
+Aktualizacja dotyczy działającej instalacji lokalnej. Wagi modułu odpowiedzi pozostają na kroku **5217**; większa sieć treningowa nie została wdrożona. Pełne lokalne portable i ZIP-y zaktualizowano 3 listopada. [Rozmiary i sprawdzenie paczek](docs/PORTABLE_20261103.md). Publiczne demo pozostaje osobnym wydaniem.
 
 ## TSI dopasowane do panelu
 
