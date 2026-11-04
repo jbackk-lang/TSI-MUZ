@@ -1,5 +1,17 @@
 # TSI-MUZ
 
+## MUZ Demo — 4 listopada 2026
+
+**[Pobierz ZIP](https://github.com/jbackk-lang/TSI-MUZ/releases/download/demo-2026.11.04/MUZ-Demo-2026.11.04.zip)** · [Informacje o wydaniu](https://github.com/jbackk-lang/TSI-MUZ/releases/tag/demo-2026.11.04)
+
+1. Zainstaluj Python 3.10 lub nowszy i rozpakuj ZIP.
+2. W Windows uruchom `START.bat`. Możesz też wykonać `python dashboard_server.py` w rozpakowanym katalogu.
+3. Otwórz `http://127.0.0.1:8796/`. Aby zatrzymać serwer, naciśnij Ctrl+C w jego oknie.
+
+Demo działa lokalnie i otwiera się z fikcyjnymi transakcjami, przykładowym planem i stałym kosztem. W widoku **Budżet** można filtrować transakcje i stałe koszty po temacie, kwocie oraz dacie. Panel pokazuje też raporty i dymki przypomnień zamykane przyciskiem **×**. Zmiany w demo zapisują się w jego katalogu `runtime`.
+
+Paczka demonstracyjna jest udostępniana bez silnika TSI, wag i prywatnych danych. Rozmowa z TSI, import wyciągów bankowych i polski kalendarz świąt są dostępne w pełnej instalacji. Rozpakowany ZIP przeszedł **6/6 prób HTTP**.
+
 ## Aktualizacja 4 listopada 2026
 
 W Stałych kosztach ustaw kalendarz obok daty płatności: Zachowaj datę, następny dzień pon.–pt. lub następny dzień roboczy w Polsce. Zapisz wiersz. Pasek przypomnień i raport korzystają z daty po korekcie. Cykl płatności nadal jest liczony od daty nominalnej. Dotychczasowe wpisy domyślnie zachowują datę. Polski wariant obsługuje daty od 2025 r.
