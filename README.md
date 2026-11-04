@@ -1,8 +1,15 @@
 # TSI-MUZ
 
-**Stan wersji lokalnej: 3 listopada 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
+## Aktualizacja 4 listopada 2026
 
-To repozytorium publikuje dokumentację i podgląd aplikacji. Kod, wagi TSI, dokumenty bankowe i dane użytkownika pozostają lokalnie. Pełną lokalną wersję portable zaktualizowano 3 listopada; szczegóły podaje [opis paczek](docs/PORTABLE_20261103.md).
+W Stałych kosztach ustaw kalendarz obok daty płatności: Zachowaj datę, następny dzień pon.–pt. lub następny dzień roboczy w Polsce. Zapisz wiersz. Pasek przypomnień i raport korzystają z daty po korekcie. Cykl płatności nadal jest liczony od daty nominalnej. Dotychczasowe wpisy domyślnie zachowują datę. Polski wariant obsługuje daty od 2025 r.
+
+[Uruchomienie i weryfikacja portable](docs/PORTABLE_20261104.md)
+
+
+**Stan wersji lokalnej: 4 listopada 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
+
+To repozytorium publikuje dokumentację i podgląd aplikacji. Kod, wagi TSI, dokumenty bankowe i dane użytkownika pozostają lokalnie. Pełna lokalna wersja portable ma wydanie 2026.11.04.
 
 ## Wspólne TSI — 3 listopada 2026
 
@@ -22,7 +29,7 @@ Zmień czas na 25 minut.
 
 Wyniki: **20 m/s**, następnie **12 km**, po zmianie **7,5 km**. Prośbę „Sprawdź moje rozwiązanie:” można uzupełnić równaniami w kolejnych wierszach. [Szczegóły aktualizacji](docs/INTEGRACJA_TSI_20261103.md) · [Zakres wspólnego TSI](https://github.com/jbackk-lang/AI-SI-TSI).
 
-Aktualizacja dotyczy działającej instalacji lokalnej. Wagi modułu odpowiedzi pozostają na kroku **5217**; większa sieć treningowa nie została wdrożona. Pełne lokalne portable i ZIP-y zaktualizowano 3 listopada. [Rozmiary i sprawdzenie paczek](docs/PORTABLE_20261103.md). Publiczne demo pozostaje osobnym wydaniem.
+Aktualizacja dotyczy działającej instalacji lokalnej. Wagi modułu odpowiedzi pozostają na kroku **5217**; większa sieć treningowa nie została wdrożona. [Poprzednie wydanie portable z 3 listopada](docs/PORTABLE_20261103.md). Publiczne demo pozostaje osobnym wydaniem.
 
 ## TSI dopasowane do panelu
 
