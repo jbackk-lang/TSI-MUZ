@@ -1,116 +1,29 @@
-# TSI-MUZ
+# TSI-MUZ — budżet, dokumenty i terminy
 
-## MUZ Demo — 4 listopada 2026
+**Wersja 1.3 · 13 listopada 2026 · Windows x64**
 
-**[Pobierz ZIP](https://github.com/jbackk-lang/TSI-MUZ/releases/download/demo-2026.11.04/MUZ-Demo-2026.11.04.zip)** · [Informacje o wydaniu](https://github.com/jbackk-lang/TSI-MUZ/releases/tag/demo-2026.11.04)
+MUZ pomaga uporządkować domowy budżet i sprawy związane z dokumentami. W jednym panelu możesz przejrzeć wydatki, zaplanować stałe płatności i sprawdzić nadchodzące terminy.
 
-1. Zainstaluj Python 3.10 lub nowszy i rozpakuj ZIP.
-2. W Windows uruchom `START.bat`. Możesz też wykonać `python dashboard_server.py` w rozpakowanym katalogu.
-3. Otwórz `http://127.0.0.1:8796/`. Aby zatrzymać serwer, naciśnij Ctrl+C w jego oknie.
+## Co oferuje pełna wersja
 
-Demo działa lokalnie i otwiera się z fikcyjnymi transakcjami, przykładowym planem i stałym kosztem. W widoku **Budżet** można filtrować transakcje i stałe koszty po temacie, kwocie oraz dacie. Panel pokazuje też raporty i dymki przypomnień zamykane przyciskiem **×**. Zmiany w demo zapisują się w jego katalogu `runtime`.
+- **Budżet.** Przeglądaj i filtruj transakcje, podsumowuj wydatki oraz importuj wyciągi bankowe w obsługiwanych formatach.
+- **Stałe koszty i przypomnienia.** Planuj płatności cykliczne i stosuj reguły przesunięcia terminu na dzień roboczy, w tym polski kalendarz świąt w obsługiwanym zakresie.
+- **Dokumenty i sprawy.** Porządkuj dokumenty, rachunki i powiązane terminy.
+- **Asystent TSI.** Rozmawiaj z lokalnym asystentem w panelu. W pełnej paczce 1.3 sprawdzono uruchomienie panelu oraz dwuturową rozmowę z TSI o obliczeniu pola trójkąta.
 
-Paczka demonstracyjna jest udostępniana bez silnika TSI, wag i prywatnych danych. Rozmowa z TSI, import wyciągów bankowych i polski kalendarz świąt są dostępne w pełnej instalacji. Rozpakowany ZIP przeszedł **6/6 prób HTTP**.
+## Demo i pełna wersja
 
-## Aktualizacja 4 listopada 2026
+| Wydanie | Rozmiar | Jak uruchomić |
+|---|---:|---|
+| Demo 1.3 | ok. 2,2 KB | Pobierz [START.html](https://raw.githubusercontent.com/jbackk-lang/TSI-MUZ/main/demo/1.3/START.html), zapisz plik i otwórz go w przeglądarce. |
+| Pełne 1.3 | ok. 3,69 GB | W lokalnym zestawie 1.3 otwórz `Pełne/MUZ`. Skopiuj cały folder na lokalny dysk i uruchom `START.bat`. |
 
-W Stałych kosztach ustaw kalendarz obok daty płatności: Zachowaj datę, następny dzień pon.–pt. lub następny dzień roboczy w Polsce. Zapisz wiersz. Pasek przypomnień i raport korzystają z daty po korekcie. Cykl płatności nadal jest liczony od daty nominalnej. Dotychczasowe wpisy domyślnie zachowują datę. Polski wariant obsługuje daty od 2025 r.
+Demo pozwala filtrować przykładowe wydatki według nazwy lub kwoty i podlicza widoczne pozycje. Działa bez instalacji i bez serwera. Pełna paczka zawiera Pythona i modele. Panel otwiera się w przeglądarce, a serwer można zamknąć przez `ZATRZYMAJ.bat`. Podane rozmiary dotyczą plików w folderach wydania.
 
-[Uruchomienie i weryfikacja portable](docs/PORTABLE_20261104.md)
+## Sprzęt i połączenie
 
+- **Windows x64** i przeglądarka z obsługą JavaScriptu. Uruchomienie i rozmowę testową sprawdzono na komputerze z **Intel Core i5-3470T**.
+- **8 GB RAM**, lokalny SSD i **co najmniej 5 GB wolnego miejsca** to zalecenie na start. Formalnego minimum RAM jeszcze nie zmierzono.
+- Podstawowe funkcje działają lokalnie. Wyszukiwanie online i zewnętrzne usługi wymagają internetu.
 
-**Stan wersji lokalnej: 4 listopada 2026.** Lokalny zarządca budżetu, dokumentów, spraw i terminów.
-
-To repozytorium publikuje dokumentację i podgląd aplikacji. Kod, wagi TSI, dokumenty bankowe i dane użytkownika pozostają lokalnie. Pełna lokalna wersja portable ma wydanie 2026.11.04.
-
-## Wspólne TSI — 3 listopada 2026
-
-Lokalne aplikacje korzystają z tej samej instalacji TSI, w wersji obsługi **`2026-11-03-consumers-11`**. Rozmowy i pamięć użytkowników są zapisywane osobno w każdej aplikacji. Zmiana panelu lub danych wybranego zadania unieważnia poprzednie aktywne dane matematyczne; przeładowanie modułu zachowuje zapisany kontekst tej samej rozmowy.
-
-Pomocnik przelicza jednostki, sprawdza kroki równań i łączy narzędzia w zadaniach o ruchu jednostajnym. Potrafi zmienić podaną wielkość i ponownie obliczyć wynik. Audyt rozwiązania ucznia uwzględnia dane zadania oraz dziedzinę, wskazując pierwszy niezgodny wiersz. Osobno zachowano pytania o podany tekst i przyczynę opisanej czynności.
-
-**Podłączenie: 15/15 prób w tej aplikacji; dodatkowo 7/7 przez jej działający panel HTTP.** Sprawdzono jednostki, zadanie 18 km/h przez 40 minut, zmianę czasu na 25 minut, audyt ucznia, PL/EN, kąty podawane osobno, rozdzielenie profili, zmianę kontekstu i odczyt po ponownym uruchomieniu procesu rozmowy.
-
-Przykładowe polecenia:
-
-```text
-Przelicz 72 km/h na m/s.
-Rowerzysta jedzie 18 km/h przez 40 minut. Jaką drogę pokona?
-Zmień czas na 25 minut.
-```
-
-Wyniki: **20 m/s**, następnie **12 km**, po zmianie **7,5 km**. Prośbę „Sprawdź moje rozwiązanie:” można uzupełnić równaniami w kolejnych wierszach. [Szczegóły aktualizacji](docs/INTEGRACJA_TSI_20261103.md) · [Zakres wspólnego TSI](https://github.com/jbackk-lang/AI-SI-TSI).
-
-Aktualizacja dotyczy działającej instalacji lokalnej. Wagi modułu odpowiedzi pozostają na kroku **5217**; większa sieć treningowa nie została wdrożona. [Poprzednie wydanie portable z 3 listopada](docs/PORTABLE_20261103.md). Publiczne demo pozostaje osobnym wydaniem.
-
-## TSI dopasowane do panelu
-
-Pomocnik pokazuje **Kontekst** i korzysta z aktywnego panelu: budżetu, wskazanej kategorii lub transakcji, tabeli stałych kosztów, spraw, dokumentów, importu, raportu i metody oszczędzania. Kliknięcie panelu albo wiersza ustawia przedmiot rozmowy. Pytanie „co wiesz o otwartej tabeli?” odwołuje się do danych aplikacji, a „kredyt” w budżecie do kategorii płatności. Kolejne pytanie może korzystać z wybranej pozycji; nowy wybór lub zmiana panelu zmienia zakres.
-
-Przy edycji stałego kosztu rozróżniane są dane zapisane i niezapisany formularz. Odczyt panelu niczego nie usuwa, nie zatwierdza ani nie wykonuje płatności. Dane finansowe użyte w tym odczycie pozostają lokalne. W ustawieniach TSI można wyłączyć kontekst panelu i wrócić do rozmowy ogólnej; jawne wyszukiwanie internetowe nadal korzysta z dotychczasowej ścieżki.
-
-## Zwarty pulpit, raporty i zalecane działania
-
-Na środku pulpitu znajduje się **Raport i zalecane działania**: podsumowanie liczb po lewej i najważniejsze zadania po prawej. W budżecie podsumowanie odpowiada wybranemu widokowi danych; tabela pozostaje dostępna, a wykresy, transakcje oraz stałe koszty rozwija się na żądanie. Na stronie głównej import dokumentów, metoda oszczędzania i szczegóły kategorii również są zwijane.
-
-**Raport według moich ustawień** otwiera centralne okno: ustawienia po lewej, wynik po prawej. Można wybrać daty i działy (wykonane płatności, bieżące stałe koszty, sprawy, dokumenty), dodać własne uwagi i włączyć szczegóły transakcji. Wybór jest pamiętany lokalnie. Wynik można pobrać jako HTML, wydrukować / zapisać do PDF z okna drukowania lub otworzyć w nowej karcie, o ile przeglądarka na to pozwala. Uwagi są dołączane do raportu; zakres danych określają daty i zaznaczone działy.
-
-## Belka informacyjna i stałe koszty
-
-Na stronie głównej i w tabeli budżetu działa dolna belka: **niebieski — do zrobienia**, **żółty — przypomnienie**, **czerwony — po terminie**, **zielony — załatwione**. Pokazuje terminy otwartych spraw w ciągu siedmiu dni i zaległości, dokumenty wymagające podpięcia lub wysłania, import czekający na zatwierdzenie oraz potwierdzone zakończenia. **Przeczytane — schowaj** chowa komunikat bez kończenia zadania. Stan przeczytania jest zapisany lokalnie i wspólny dla obu stron. Zmiana treści lub kolejny dzień może ponowić przypomnienie; zakończenie nie wraca codziennie. Przycisk **Informacje i przypomnienia** otwiera przegląd i listę dokumentów ze statusami potwierdzanymi przez użytkownika.
-
-**Stałe koszty** to edytowalna tabela z nazwą, kategorią, kwotą, częstotliwością, dniem płatności i potwierdzeniem. Wstępne propozycje TSI-MUZ powstają z zapisanych płatności w PLN: opisów typowych rachunków oraz podobnych kwot powtarzających się w różnych miesiącach. Kwota z ostatniej płatności i oszacowana częstotliwość wymagają sprawdzenia. Można dopisać własne pozycje, usunąć koszt przyciskiem **Usuń** w jego wierszu, przywrócić go przez **Cofnij usunięcie** pod tabelą, a także wyłączyć pozycje bez kasowania i przeliczyć koszt miesięczny dla płatności miesięcznych, dwumiesięcznych, kwartalnych i rocznych. Potwierdzone oraz niepotwierdzone kwoty są pokazane oddzielnie; tabela nie zmienia automatycznie limitów planu ani nie wykonuje płatności. **Najbliższy termin** potwierdzonego kosztu jest połączony z belką i zalecanymi działaniami. **Potwierdź opłacenie** zapisuje oświadczenie użytkownika i przesuwa datę o jeden okres, bez dopisywania transakcji; z komunikatu można przejść do właściwego wiersza.
-
-Szczegóły: [przypomnienia i koszty stałe](docs/PRZYPOMNIENIA_I_KOSZTY_2026-10-29.md). Aktualizacja dotyczy lokalnego katalogu roboczego; dotychczasowych ZIP-ów nie przebudowano.
-
-
-## Co działa
-
-- Dashboard spraw i planów oraz osobna tabela budżetu z wykresami i podsumowaniem kategorii.
-- Import wyciągów PDF z tekstem, CSV i MT940/STA: do 10 plików i 100 MB, status każdego pliku, propozycje kategorii i kontrola ponownego importu. Skan może wymagać OCR; nie każdy układ dokumentu jest obsługiwany.
-- Ręczne wpływy i wydatki, edycja, usuwanie oraz cofanie korekty; kwoty są przechowywane w całkowitych groszach.
-- Analiza dostępnego salda, historii wydatków i stałych opłat; plan rezerwy i przydziału środków oraz projekty pism w zakresie silnika MUZ.
-- Automat sprawdzający terminy i zmiany co 30 sekund, gdy serwer działa. Dane i historia spraw są zapisywane lokalnie w SQLite.
-- Wspólna obsługa zadań przez TSI, walidacja przekazywanych rekordów i wskazywanie brakujących danych zamiast wymyślania salda.
-
-MUZ nie wykonuje przelewów ani nie wysyła pism. Nie pobiera sam transakcji z banku. Projekty wymagają oceny użytkownika; bez kompletnego salda i historii plan może pozostać niepełny.
-
-## Uruchomienie
-
-Instalacja robocza: `Uruchom_TSI_MUZ.bat`; panel `http://127.0.0.1:8796/`. Menu umożliwia otwarcie, restart i zamknięcie własnego serwera.
-
-Portable: rozpakuj ZIP i użyj `START.bat`. Wybierany jest osobny wolny port od 8820. Zamykanie własnej instancji: `ZATRZYMAJ.bat`. Automat działa przy uruchomionym serwerze; zamknięcie karty przeglądarki nie zatrzymuje serwera.
-
-## Ostatnie sprawdzenia
-
-**5/5 kontroli budżetu**: pełny plan zgodny z dotychczasowym silnikiem, dokładne saldo **2950,00 zł**, odrzucenie niecałkowitych groszy, niewłaściwej waluty i przyszłej daty oraz poprawny wynik po odrzuconych żądaniach.
-
-Próba HTTP z dodanym wydatkiem potwierdziła wskazanie brakującego salda i historii potrzebnej do planu. Dane sprawdzianu były syntetyczne. Wyniki nie oznaczają kwalifikacji do samodzielnego podejmowania decyzji finansowych.
-
-
-## Portable — Windows x64
-
-Paczka zawiera kod źródłowy, aktywne modele, lokalny Python i biblioteki. Rozpakuj cały ZIP do katalogu z prawem zapisu i uruchom **START.bat**. Zatrzymanie: **ZATRZYMAJ.bat**. Nie potrzeba innych katalogów projektów ani instalowania Pythona. Zachowaj całą strukturę folderów.
-
-Portable przechowuje własne dane wykonania w `app/runtime`. Archiwum startowe nie zawiera prywatnych dokumentów bankowych, danych użytkownika, haseł panelu, tokenów, historii Git i katalogów treningu. Baza użytkownika istniejącej lokalnej wersji portable jest zachowywana podczas aktualizacji folderu; ZIP przeznaczony do przenoszenia pozostaje czysty.
-
-Rozmiary składników znajdują się w `PACKAGE_INFO.json` wewnątrz paczki. Rozmiar ZIP i jego SHA-256 zapisuje raport `PORTABLE_PACKAGES_2026-10-23.json` obok archiwów. Zewnętrzne odnośniki słownika wymagają internetu. Import obrazów wymaga dostępnego lokalnego OCR; obecność i działanie OCR są wykazywane w raporcie kontroli paczki.
-
-## Historia
-
-Poprzedni README i opis wcześniejszych etapów: [archiwum dokumentacji](docs/archiwum/README_przed_2026-10-23.md). [Aktualna integracja i sprawdzenia](docs/INTEGRACJA_TSI_2026-10-23.md).
-
-## Aktualny podgląd — 29 października 2026
-
-Bieżący układ budżetu, edytowalne stałe koszty i belka przypomnień. Wszystkie kwoty i nazwy na zrzutach są danymi testowymi.
-
-![Aktualny budżet i tabela stałych kosztów — dane testowe](docs/muz-budget-current.png)
-
-Raport z ustawieniami po lewej i wynikiem po prawej:
-
-![Aktualne okno raportu MUZ — dane testowe](docs/muz-report-current.png)
-
-
-[README sprzed aktualizacji 29 października](docs/archiwum/README_przed_2026-10-29.md).
-
-[README sprzed podłączenia z 3 listopada](docs/archiwum/README_przed_integracja_20261103.md).
+[Archiwalny opis i wcześniejsze wydania](docs/README-przed-wersja-1.3.md)
