@@ -9,7 +9,7 @@ MUZ pomaga uporządkować domowy budżet i sprawy związane z dokumentami. W jed
 - **Budżet.** Przeglądaj i filtruj transakcje, podsumowuj wydatki oraz importuj wyciągi bankowe w obsługiwanych formatach.
 - **Stałe koszty i przypomnienia.** Planuj płatności cykliczne i stosuj reguły przesunięcia terminu na dzień roboczy, w tym polski kalendarz świąt w obsługiwanym zakresie.
 - **Dokumenty i sprawy.** Porządkuj dokumenty, rachunki i powiązane terminy.
-- **Asystent TSI.** Rozmawiaj z lokalnym asystentem w panelu. W pełnej paczce 1.3 sprawdzono uruchomienie panelu oraz dwuturową rozmowę z TSI o obliczeniu pola trójkąta.
+- **Asystent TSI.** Zadawaj pytania w panelu, gdy przeglądasz budżet, stałe koszty lub terminy płatności.
 
 ## Demo i pełna wersja
 
@@ -22,7 +22,7 @@ Demo pozwala filtrować przykładowe wydatki według nazwy lub kwoty i podlicza 
 
 ## Sprzęt i połączenie
 
-- **Windows x64** i przeglądarka z obsługą JavaScriptu. Uruchomienie i rozmowę testową sprawdzono na komputerze z **Intel Core i5-3470T**.
+- **Windows x64** i przeglądarka z obsługą JavaScriptu. Uruchomienie panelu sprawdzono na komputerze z **Intel Core i5-3470T**.
 - **8 GB RAM**, lokalny SSD i **co najmniej 5 GB wolnego miejsca** to zalecenie na start. Formalnego minimum RAM jeszcze nie zmierzono.
 - Podstawowe funkcje działają lokalnie. Wyszukiwanie online i zewnętrzne usługi wymagają internetu.
 
